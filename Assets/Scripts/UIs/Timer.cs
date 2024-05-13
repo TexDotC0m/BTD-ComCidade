@@ -38,8 +38,7 @@ public class Timer : MonoBehaviour
 
     public void pause()
         {
-            timerOn = false;  
-            //PlayerPrefs.SetFloat("timerTxt", remainingTime);
+        timerOn = false;
         }
 
    

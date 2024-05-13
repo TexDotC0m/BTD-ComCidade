@@ -20,15 +20,19 @@ public class CameraPrimeiraPessoa : MonoBehaviour
     }
     void Update()
     {
-        //Definindo que ao mexer o mouse pro lado, a camera gira junto
-        float x = Input.GetAxis("Mouse X") * mouseSenseX;
-        float y = Input.GetAxis("Mouse Y") * mouseSenseY;
+        if(Time.timeScale == 1)
+        {
+             //Definindo que ao mexer o mouse pro lado, a camera gira junto
+             float x = Input.GetAxis("Mouse X") * mouseSenseX;
+             float y = Input.GetAxis("Mouse Y") * mouseSenseY;
 
-        rotation -= y;//Isso é feito para que o método Mathf.Clamp funcione propriamente
-        rotation = Mathf.Clamp(rotation, -90f, 90f);//Serve para manter a rotação da camera no eixo Y, presa entre as coordenadas de Y -90 e 90 
-        transform.localEulerAngles = Vector3.right * rotation;//gira a camera no eixo Y
+            rotation -= y;//Isso é feito para que o método Mathf.Clamp funcione propriamente
+            rotation = Mathf.Clamp(rotation, -90f, 90f);//Serve para manter a rotação da camera no eixo Y, presa entre as coordenadas de Y -90 e 90 
+            transform.localEulerAngles = Vector3.right * rotation;//gira a camera no eixo Y
 
-        player.Rotate(Vector3.up * x);//gira a camera no eixo X
+            player.Rotate(Vector3.up * x);//gira a camera no eixo X
+        }
+        
 
 
 
