@@ -12,6 +12,7 @@ public class MudarCena : MonoBehaviour
     public TMP_Text score;
     public static int lixoColetado = 0;
     public static bool funcaoChamada = false;
+    public static bool miniGameIniciado = false; // tem que colocar isso toda vez que for iniciar uma cena de minigame
     private IEnumerator coroutine;
 
 
@@ -36,6 +37,7 @@ public class MudarCena : MonoBehaviour
 
     public void MiniGameFlappyBird()
     {
+        miniGameIniciado = true;
         SceneManager.LoadScene("Flappy");
     }
     
@@ -49,6 +51,7 @@ public class MudarCena : MonoBehaviour
 
     public static void MainGameCidade()
     {
+        miniGameIniciado = false;
         funcaoChamada = false;
         SceneManager.LoadScene("Cidade");
         PlayerPrefs.GetFloat("Timer.timeLeft");
@@ -58,11 +61,13 @@ public class MudarCena : MonoBehaviour
 
     public void VoltaProMenu()
     {
+        miniGameIniciado = false;
         SceneManager.LoadScene("Menu");
     }
 
     public static void ObjetivoConcluido()
     {
+        miniGameIniciado = false;
         funcaoChamada = true;
         lixoColetado++;
         PlayerPrefs.SetInt("score", lixoColetado);
@@ -71,6 +76,7 @@ public class MudarCena : MonoBehaviour
 
     public static void ObjetivoNaoConcluido()
     {
+        miniGameIniciado = false;
         SceneManager.LoadScene("Derrota");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -84,6 +90,7 @@ public class MudarCena : MonoBehaviour
 
     public static void TimeOut()
     {
+        miniGameIniciado = false;
         SceneManager.LoadScene("TimeOut");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

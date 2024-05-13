@@ -10,6 +10,7 @@ public class infiniteMap : MonoBehaviour
 {
     public GameObject pipeSection;
     public TMP_Text title;
+    public TextMeshProUGUI timerTxt;
     public TMP_Text pontuacao;
     public TMP_Text lifes;
     public Rigidbody playerRb;
@@ -24,6 +25,7 @@ public class infiniteMap : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        timerTxt.enabled = false;
     }
 
 
@@ -45,6 +47,7 @@ public class infiniteMap : MonoBehaviour
         {
             Instantiate(pipeSection, new Vector3(2f, pos, -8f), Quaternion.identity);
             title.enabled = false;
+            timerTxt.enabled = true;
         }
 
 

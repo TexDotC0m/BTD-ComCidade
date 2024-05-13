@@ -12,7 +12,7 @@ public class creditoscodigo : MonoBehaviour
     public void Jogar()
     {
         MudarCena.lixoColetado = 0;
-        Timer.timeLeft = 300f;
+       // Timer.timeLeft = 300f;
         SceneManager.LoadScene("Cidade");
     }
 
